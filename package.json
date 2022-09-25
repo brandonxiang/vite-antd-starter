@@ -1,0 +1,68 @@
+{
+  "name": "admin-vite-template",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cross-env APP_ENV=test vite",
+    "build:test": "cross-env APP_ENV=test vite build",
+    "build:uat": "cross-env APP_ENV=uat vite build",
+    "build": "cross-env APP_ENV=live vite build",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "optionalDependencies": {
+    "@commitlint/cli": "16.0.2",
+    "@commitlint/config-conventional": "16.0.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.10",
+    "@types/react": "16.14.0",
+    "@types/react-dom": "16.9.14",
+    "@types/react-router-dom": "5.3.3",
+    "@typescript-eslint/eslint-plugin": "5.10.0",
+    "@typescript-eslint/parser": "5.10.0",
+    "@vitejs/plugin-react": "1.1.4",
+    "cross-env": "7.0.3",
+    "eslint": "8.7.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "less": "3.13.1",
+    "prettier": "2.5.1",
+    "sass": "1.49.0",
+    "typescript": "4.5.4",
+    "vite": "2.7.13",
+    "vite-plugin-html": "2.1.2",
+    "vite-plugin-optimize-persist": "0.1.2",
+    "vite-plugin-package-config": "0.1.1",
+    "vite-plugin-style-import": "1.4.1"
+  },
+  "dependencies": {
+    "@ant-design/icons": "4.7.0",
+    "antd": "4.18.4",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-router-dom": "5.3.0"
+  },
+  "vite": {
+    "optimizeDeps": {
+      "include": [
+        "@ant-design/icons",
+        "antd",
+        "react",
+        "react-dom",
+        "react-router",
+        "react-router-dom"
+      ]
+    }
+  }
+}
