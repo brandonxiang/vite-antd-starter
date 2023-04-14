@@ -1,8 +1,6 @@
 import path from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import OptimizationPersist from 'vite-plugin-optimize-persist';
-import PkgConfig from 'vite-plugin-package-config';
+import react from '@vitejs/plugin-react-swc';
 import styleImport, { AntdResolve } from 'vite-plugin-style-import';
 import html from 'vite-plugin-html';
 
@@ -23,6 +21,13 @@ export default defineConfig(({ mode }) => {
     build: {
       target: 'es2015',
       sourcemap: mode === 'production',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            react: ['react', 'react-dom', 'react-router-dom'],
+          },
+        },
+      },
     },
     css: {
       preprocessorOptions: {
@@ -39,9 +44,6 @@ export default defineConfig(({ mode }) => {
       styleImport({
         resolves: [AntdResolve()],
       }),
-      // https://github.com/antfu/vite-plugin-optimize-persist
-      OptimizationPersist(),
-      PkgConfig(),
       html({
         minify: true,
       }),

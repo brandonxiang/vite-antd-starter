@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import './index.scss';
 import { urlToList } from '@/utils';
@@ -25,10 +25,9 @@ const findTitleByPath = (path: string) => {
   return result;
 };
 
-export const BreadcrumbView = withRouter((props) => {
-  const {
-    location: { pathname },
-  } = props;
+export const BreadcrumbView = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
 
   let path = urlToList(pathname);
   if (path.length === 0) {
@@ -47,4 +46,4 @@ export const BreadcrumbView = withRouter((props) => {
       )}
     </Breadcrumb>
   );
-});
+};
