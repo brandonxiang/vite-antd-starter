@@ -12,7 +12,6 @@ npx degit brandonxiang/vite-antd-starter
 npx degit brandonxiang/vite-antd-starter your-project-name
 ```
 
-````
 
 ### 开发
 
