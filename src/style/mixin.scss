@@ -97,7 +97,7 @@
   @if $line==1 {
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 100% -$substract;
+    width: 100% (-$substract);
   } @else {
     display: -webkit-box;
     -webkit-line-clamp: $line;

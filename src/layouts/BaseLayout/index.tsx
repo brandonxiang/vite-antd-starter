@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
-import { withRouter, RouteComponentProps } from 'react-router';
 import { Header } from '../Header';
 import { BaseMenu } from '../Menu';
 import { BaseRouters } from '@/router';
@@ -8,7 +7,7 @@ import { getMenus } from '@/router/config';
 import { APP_ENV } from '@/utils';
 import styles from './index.module.scss';
 
-type BaseLayoutProps = RouteComponentProps;
+interface BaseLayoutProps {}
 
 interface BaseLayoutState {}
 
@@ -24,7 +23,7 @@ class PageLayout extends PureComponent<BaseLayoutProps, BaseLayoutState> {
 
   render() {
     return (
-      <Layout>
+      <Layout style={{ minHeight: '100vh' }}>
         <Sider
           collapsible={false}
           style={{
@@ -62,4 +61,4 @@ class PageLayout extends PureComponent<BaseLayoutProps, BaseLayoutState> {
   }
 }
 
-export const ContentLayout = withRouter(PageLayout);
+export const ContentLayout = PageLayout;

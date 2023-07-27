@@ -27,5 +27,6 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 1,
     'no-async-promise-executor': 1,
     'no-empty': 1,
+    '@typescript-eslint/no-explicit-any': 1,
   },
 };

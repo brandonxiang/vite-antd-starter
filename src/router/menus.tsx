@@ -8,13 +8,13 @@ const Menus: MenuType[] = [
     path: '/',
     title: 'Home',
     icon: <HomeOutlined />,
-    component: Home,
+    component: <Home />,
     subMenu: [
       {
         path: '/home',
         title: 'Home',
         icon: <UnorderedListOutlined />,
-        component: Home,
+        component: <Home />,
       },
     ],
   },
