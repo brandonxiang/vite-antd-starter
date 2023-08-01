@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Menu as AntMenu } from 'antd';
 import { Link } from 'react-router-dom';
-import { MenuProps as AntMenuProps } from 'antd/lib/menu';
+import { MenuProps as AntMenuProps } from 'antd/es/menu';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 
 interface MenuItem {
   path: string;
@@ -18,49 +19,61 @@ type MenuProps = {
   menu: MenuItem[];
 } & AntMenuProps;
 
-const renderMenuItem = (item: MenuItem) => (
-  <AntMenu.Item
-    key={item.path}
-    onClick={() => {
-      if (item.redirect) {
-        window.location.href = item.redirect;
-      }
-    }}
-  >
-    {item.ret ? (
-      <div>
-        {item.icon}
+const getMenu = (menu: MenuItem[]): AntMenuProps['items'] => {
+  const items = menu.map((item) => {
+    let res: ItemType = {
+      key: item.path,
+      icon: item.icon,
+      label: item.subMenu ? (
         <span className="nav-text">{item.title}</span>
-      </div>
-    ) : (
-      <Link to={item.redirect || item.path}>
-        {item.icon}
-        <span className="nav-text">{item.title}</span>
-      </Link>
-    )}
-  </AntMenu.Item>
-);
+      ) : (
+        <Link to={item.redirect || item.path}>
+          <span className="nav-text">{item.title}</span>
+        </Link>
+      ),
+      onClick: () => {
+        if (item.redirect) {
+          window.location.href = item.redirect;
+        }
+      },
+    };
 
-const renderSubMenu = (item: MenuItem) => (
-  <AntMenu.SubMenu
-    key={item.path}
-    title={
-      <span>
-        {item.icon}
-        <span className="nav-text">{item.title}</span>
-      </span>
+    if (item.subMenu) {
+      const children = item.subMenu
+        .filter((item) => !item.noMenu)
+        .map((item) => {
+          return {
+            key: item.path,
+            icon: item.icon,
+            label: item.subMenu ? (
+              <span className="nav-text">{item.title}</span>
+            ) : (
+              <Link to={item.redirect || item.path}>
+                <span className="nav-text">{item.title}</span>
+              </Link>
+            ),
+            onClick: () => {
+              if (item.redirect) {
+                window.location.href = item.redirect;
+              }
+            },
+          };
+        });
+      res = {
+        ...res,
+        children,
+      };
     }
-  >
-    {item
-      .subMenu!.filter((item) => !item.noMenu)
-      .map((item) => renderMenuItem(item))}
-  </AntMenu.SubMenu>
-);
 
-export const BaseMenu = ({ menu, ...props }: MenuProps) => (
-  <AntMenu {...props}>
-    {menu.map((item) =>
-      item.subMenu ? renderSubMenu(item) : renderMenuItem(item)
-    )}
-  </AntMenu>
-);
+    return res;
+  });
+  return items;
+};
+
+export const BaseMenu = ({ menu, ...props }: MenuProps) => {
+  //支持两层路由，如果要支持多于三层，请重构
+
+  const items = getMenu(menu);
+
+  return <AntMenu {...props} items={items}></AntMenu>;
+};

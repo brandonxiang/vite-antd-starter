@@ -1,49 +1,36 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import './index.scss';
-import { urlToList } from '@/utils';
 import { getMenus } from '@/router/config';
 
-const findTitleByPath = (path: string) => {
-  let result = {
-    title: '',
-    parentTitle: '',
-  };
+const getTitleByPath = (path: string) => {
+  let title = '';
   getMenus().forEach((menu) => {
     if (menu.subMenu) {
-      menu.subMenu.forEach((item) => {
-        if (item.path === path) {
-          result = {
-            title: item.title,
-            parentTitle: menu.title,
-          };
-        }
-      });
+      const subMenu = menu.subMenu.find((item) => item.path === path);
+      if (subMenu) {
+        title = subMenu.title;
+      }
+    }
+    if (menu.path === path) {
+      title = menu.title;
     }
   });
-  return result;
+  return title;
 };
 
 export const BreadcrumbView = () => {
   const location = useLocation();
-  const pathname = location.pathname;
+  const pathSnippets = location.pathname.split('/').filter((i) => i);
 
-  let path = urlToList(pathname);
-  if (path.length === 0) {
-    path = ['/dashboard'];
-  }
-  return (
-    <Breadcrumb>
-      <Breadcrumb.Item>
-        <span>{findTitleByPath(pathname).parentTitle}</span>
-      </Breadcrumb.Item>
+  const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+    const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+    return {
+      key: url,
+      title: <Link to={url}>{getTitleByPath(url)}</Link>,
+    };
+  });
 
-      {path[1] && (
-        <Breadcrumb.Item>
-          <span>{findTitleByPath(pathname).title}</span>
-        </Breadcrumb.Item>
-      )}
-    </Breadcrumb>
-  );
+  return <Breadcrumb items={extraBreadcrumbItems} />;
 };

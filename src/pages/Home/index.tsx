@@ -1,5 +1,13 @@
 import React from 'react';
 import { Result } from 'antd';
+import { FormInstance } from 'antd/es/form';
+
+export interface FormDatePickerProps {
+  itemName: string;
+  form: FormInstance;
+  required?: boolean;
+  limit?: number;
+}
 
 const Home = () => {
   return (

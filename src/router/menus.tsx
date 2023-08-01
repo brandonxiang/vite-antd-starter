@@ -18,6 +18,26 @@ const Menus: MenuType[] = [
       },
     ],
   },
+  {
+    path: '/menu1',
+    title: 'Menu 1',
+    icon: <HomeOutlined />,
+    component: <Home />,
+    subMenu: [
+      {
+        path: '/menu1/submenu1',
+        title: 'Submenu 1',
+        icon: <UnorderedListOutlined />,
+        component: <Home />,
+      },
+    ],
+  },
+  {
+    path: '/menu2',
+    title: 'Menu 2',
+    icon: <HomeOutlined />,
+    component: <Home />,
+  },
 ];
 
 export default Menus;
