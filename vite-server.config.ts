@@ -18,17 +18,7 @@ export default defineConfig(({ mode }) => {
       'process.env.__DEV__': isDev,
     },
     build: {
-      target: 'es2015',
-      sourcemap: mode === 'production',
-
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            react: ['react', 'react-dom', 'react-router-dom'],
-            antd: ['antd'],
-          },
-        },
-      },
+      minify: false,
     },
     css: {
       preprocessorOptions: {

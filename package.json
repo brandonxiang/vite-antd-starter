@@ -1,12 +1,11 @@
 {
   "name": "admin-vite-template",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "cross-env APP_ENV=test vite",
-    "build:test": "cross-env APP_ENV=test vite build",
-    "build:uat": "cross-env APP_ENV=uat vite build",
-    "build": "cross-env APP_ENV=live vite build",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server --config vite-server.config.ts",
+    "build": "vite build --outDir dist/static && npm run build:server && node prerender.mjs",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -36,7 +35,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "7.33.0",
     "eslint-plugin-react-hooks": "4.6.0",
-    "prettier": "3.0.0",
+    "prettier": "^3.0.3",
     "sass": "1.64.1",
     "taze": "^0.11.2",
     "typescript": "5.1.6",
