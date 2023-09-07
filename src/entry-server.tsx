@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
-import { ContentLayout } from '@/layouts/BaseLayout';
+import renderApp from './render-app';
 
 import './index.scss';
 
 export function render(url: string) {
+  const { App, style } = renderApp();
+
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={url}>
-      <ContentLayout />
+      <App />
     </StaticRouter>,
   );
-  return html;
+
+  return [html, style];
 }

@@ -16,10 +16,10 @@ const routesToPrerender = ['/', '/404'];
   // pre-render each route...
   for (const url of routesToPrerender) {
     const context = {}
-    const appHtml = await render(url, context)
-    console.log(url, appHtml);
+    const [ appHtml, styleText ] = await render(url, context)
 
-    const html = template.replace(`<!--app-html-->`, appHtml)
+    const temp = template.replace(`<!--app-html-->`, appHtml)
+    const html = temp.replace(`<!--app-style-->`, styleText)
 
     const filePath = `dist/static${url === '/' ? '/index' : url}.html`
     fs.writeFileSync(toAbsolute(filePath), html)
