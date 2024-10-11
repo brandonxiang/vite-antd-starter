@@ -1,21 +1,35 @@
-import eslint from '@eslint/js';
+import js from '@eslint/js';
+import globals from 'globals'
 import tsEslint from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
-import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 export default tsEslint.config(
-  ...tsEslint.configs.recommended,
   {
-    ...eslint.configs.recommended, 
-    ...reactPlugin.configs.flat.recommended,
-    ...eslintPluginPrettierRecommended,
     ignores: ['dist/', 'node_modules/'],
-    files: ['src/**/*.{ts,tsx,mts,cts}'],
+  },
+  
+  {
+    extends: [
+      ...tsEslint.configs.recommended,
+      js.configs.recommended,
+      reactPlugin.configs.flat.recommended,
+    ],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
     plugins: {
-      'react-hooks': reactHooksPlugin
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
     rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
       quotes: [2, 'single'],
       semi: ["error", "always"],
       camelcase: 'off',
