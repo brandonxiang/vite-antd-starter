@@ -3,6 +3,7 @@ import globals from 'globals'
 import tsEslint from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default tsEslint.config(
   {
@@ -35,6 +36,7 @@ export default tsEslint.config(
       camelcase: 'off',
       'no-async-promise-executor': 1,
       'no-empty': 1,
+      "@typescript-eslint/no-explicit-any": 1,
     },
   },
 );

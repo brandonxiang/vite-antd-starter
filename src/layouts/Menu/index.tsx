@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Menu as AntMenu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { MenuProps as AntMenuProps } from 'antd/es/menu';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
+import { ItemType } from 'antd/es/menu/interface';
 
 interface MenuItem {
   path: string;

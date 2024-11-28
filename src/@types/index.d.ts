@@ -1,4 +1,4 @@
-interface MenuType {
+export interface MenuType {
   path: string;
   title: string;
   icon: any;

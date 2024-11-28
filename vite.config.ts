@@ -1,11 +1,17 @@
-import path from 'path';
+/* eslint-disable no-undef */
+import path, { dirname } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { createHtmlPlugin } from 'vite-plugin-html';
+import { fileURLToPath } from 'url';
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const isDev = mode === 'development';
+
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
 
   return {
     resolve: {
@@ -23,7 +29,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            react: ['react', 'react-dom', 'react-router-dom'],
+            react: ['react', 'react-dom', 'react-router'],
             antd: ['antd'],
           },
         },

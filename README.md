@@ -1,4 +1,10 @@
-# Awesome Starter
+<p align="center">
+  <a href="https://github.com/brandonxiang/vite-antd-starter">
+    <img src="https://brandonxiang.top/icon/vite-template.jpeg" width="150px" alt="Vite Template Logo" />
+  </a>
+</p>
+
+# Vite Antd Starter 😄
 
 ## Why do you use this template
 
@@ -48,7 +54,6 @@ pnpm run build
 
 ## Project Management
 
-- [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#rules)
-- [huksy](https://typicode.github.io/husky/)
-- [eslint](https://eslint.nodejs.cn/)
-- [prettier](https://prettier.io/)
+- [husky](https://typicode.github.io/husky/)
+- [lint-staged](https://github.com/lint-staged/lint-staged)
+- [eslint 9](https://eslint.org/)
