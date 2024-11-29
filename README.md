@@ -6,6 +6,11 @@
 
 # Vite Antd Starter 😄
 
+| Rendering Mode        | Branch                                      |
+|------------------|-------------------------------------------|
+| SPA mode (CSR)   | [master](https://github.com/brandonxiang/vite-antd-starter)             |
+| SSR mode     | [ssr](https://github.com/brandonxiang/vite-antd-starter/tree/ssr) |
+
 ## Why do you use this template
 
 This template is a simplest solution to start up an new SPA.
