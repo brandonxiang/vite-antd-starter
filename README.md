@@ -26,11 +26,11 @@ Please use [degit](https://github.com/Rich-Harris/degit) to download template
 #
 mkdir your-project-name
 cd your-project-name
-npx degit brandonxiang/vite-antd-starter
+npx degit brandonxiang/vite-antd-starter#ssr
 
 # or
 
-npx degit brandonxiang/vite-antd-starter your-project-name
+npx degit brandonxiang/vite-antd-starter#ssr your-project-name
 ```
 
 ## How to Develop
