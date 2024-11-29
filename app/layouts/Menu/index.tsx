@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Menu as AntMenu } from 'antd';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 import { MenuProps as AntMenuProps } from 'antd/es/menu';
 import { ItemType } from 'antd/es/menu/interface';
 
@@ -27,9 +27,9 @@ const getMenu = (menu: MenuItem[]): AntMenuProps['items'] => {
       label: item.subMenu ? (
         <span className="nav-text">{item.title}</span>
       ) : (
-        <Link to={item.redirect || item.path}>
+        <NavLink to={item.redirect || item.path}>
           <span className="nav-text">{item.title}</span>
-        </Link>
+        </NavLink>
       ),
       onClick: () => {
         if (item.redirect) {
@@ -48,9 +48,9 @@ const getMenu = (menu: MenuItem[]): AntMenuProps['items'] => {
             label: item.subMenu ? (
               <span className="nav-text">{item.title}</span>
             ) : (
-              <Link to={item.redirect || item.path}>
+              <NavLink to={item.redirect || item.path}>
                 <span className="nav-text">{item.title}</span>
-              </Link>
+              </NavLink>
             ),
             onClick: () => {
               if (item.redirect) {

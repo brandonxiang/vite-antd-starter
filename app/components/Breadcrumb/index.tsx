@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router';
 import { Breadcrumb } from 'antd';
 import './index.scss';
-import { getMenus } from '@/router/config';
+import { getMenus } from '~/router/config';
 
 const getTitleByPath = (path: string) => {
   let title = '';

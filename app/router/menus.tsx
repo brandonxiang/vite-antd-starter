@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 import { HomeOutlined, UnorderedListOutlined } from '@ant-design/icons';
 
-const Home = lazy(() => import('@/pages/Home'));
+const Home = lazy(() => import('~/pages/Home'));
 
 const Menus: MenuType[] = [
   {
