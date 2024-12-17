@@ -1,6 +1,6 @@
 import { PassThrough } from 'node:stream';
 
-import type { AppLoadContext, EntryContext } from 'react-router';
+import type { EntryContext } from 'react-router';
 import { createReadableStreamFromReadable } from '@react-router/node';
 import { ServerRouter } from 'react-router';
 import { isbot } from 'isbot';
@@ -8,7 +8,6 @@ import type { RenderToPipeableStreamOptions } from 'react-dom/server';
 import { renderToPipeableStream } from 'react-dom/server';
 import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
-import type Entity from '@ant-design/cssinjs/es/Cache';
 import { ServerStyleSheet } from 'styled-components';
 
 const ABORT_DELAY = 5_000;
@@ -18,7 +17,6 @@ export default function handleRequest(
   responseStatusCode: number,
   responseHeaders: Headers,
   routerContext: EntryContext,
-  loadContext: AppLoadContext
 ) {
 
   let isStyleExtracted = false;
