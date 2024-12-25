@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Menu as AntMenu } from 'antd';
 import { Link } from 'react-router';
 import { MenuProps as AntMenuProps } from 'antd/es/menu';

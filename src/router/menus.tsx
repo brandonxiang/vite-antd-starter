@@ -1,5 +1,6 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import { HomeOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { MenuType } from '@/@types';
 
 const Home = lazy(() => import('@/pages/Home'));
 

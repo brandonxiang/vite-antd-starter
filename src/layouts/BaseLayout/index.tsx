@@ -1,4 +1,3 @@
-import React, { PureComponent } from 'react';
 import { Layout } from 'antd';
 import { Header } from '../Header';
 import { BaseMenu } from '../Menu';

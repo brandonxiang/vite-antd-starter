@@ -4,7 +4,7 @@ import { Dropdown, Avatar, MenuProps } from 'antd';
 import styles from './index.module.scss';
 
 interface HeaderProps {
-  onMenuClick: (param: any) => void;
+  onMenuClick: () => void;
   user: {
     [key: string]: string;
   };

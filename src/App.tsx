@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router';
 import { ContentLayout } from '@/layouts/BaseLayout';
 import './App.scss';

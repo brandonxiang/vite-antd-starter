@@ -1,4 +1,3 @@
-import React from 'react';
 import { Result } from 'antd';
 import { FormInstance } from 'antd/es/form';
 

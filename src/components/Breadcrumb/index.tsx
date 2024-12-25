@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router';
 import { Breadcrumb } from 'antd';
 import './index.scss';

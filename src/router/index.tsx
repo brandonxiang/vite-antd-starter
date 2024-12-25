@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { getMenus } from './config';
 import NotFound from '@/pages/404';
