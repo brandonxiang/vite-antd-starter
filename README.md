@@ -6,11 +6,6 @@
 
 # Vite Antd Starter 😄
 
-| Rendering Mode        | Branch                                      |
-|------------------|-------------------------------------------|
-| SPA mode (CSR)   | [master](https://github.com/brandonxiang/vite-antd-starter)             |
-| SSR mode     | [ssr](https://github.com/brandonxiang/vite-antd-starter/tree/ssr) |
-
 ## Why do you use this template
 
 This template is a simplest solution to start up an new SPA.
@@ -38,8 +33,6 @@ npx degit brandonxiang/vite-antd-starter
 npx degit brandonxiang/vite-antd-starter your-project-name
 ```
 
-## How to Develop
-
 ```shell
 pnpm i
 ```
@@ -50,15 +43,18 @@ pnpm run dev
 # http://localhost:3000/
 ```
 
-## How to Build
-
 ```shell
 # live
 pnpm run build
 ```
 
-## Project Management
 
-- [husky](https://typicode.github.io/husky/)
-- [lint-staged](https://github.com/lint-staged/lint-staged)
-- [eslint 9](https://eslint.org/)
+## Relevant Links
+
+- [vite-antd-starter](https://github.com/brandonxiang/vite-antd-starter)
+- [vite-antd-ssr-starter](https://github.com/brandonxiang/vite-antd-ssr-starter)
+- [vite-antd-mobile-starter](https://github.com/brandonxiang/vite-antd-mobile-starter)
+- [fastify-starter](https://github.com/brandonxiang/fastify-starter)
+- [ts-lib-starter](https://github.com/brandonxiang/ts-lib-starter)
+- [svelteup-starter](https://github.com/brandonxiang/svelteup-starter)
+- [reveal-svelte-starter](https://github.com/brandonxiang/reveal-svelte-starter)

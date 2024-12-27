@@ -1,3 +1,4 @@
+import { PureComponent } from 'react';
 import { Layout } from 'antd';
 import { Header } from '../Header';
 import { BaseMenu } from '../Menu';
@@ -6,18 +7,12 @@ import { getMenus } from '@/router/config';
 import { APP_ENV } from '@/utils';
 import styles from './index.module.scss';
 
-interface BaseLayoutProps {}
-
-interface BaseLayoutState {}
 
 const { Sider, Content } = Layout;
 const menus = getMenus();
 
-class PageLayout extends PureComponent<BaseLayoutProps, BaseLayoutState> {
-  onMenuClick = ({ key }: any) => {
-    if (key === 'logout') {
-      // logout
-    }
+class PageLayout extends PureComponent {
+  onMenuClick = () => {
   };
 
   render() {
