@@ -33,7 +33,7 @@
     "typescript": "5.7.2",
     "vite": "^6.0.6",
     "vite-plugin-html": "3.2.2",
-    "globals": "^15.14.0"
+    "globals": "^16.3.0"
   },
   "dependencies": {
     "@ant-design/icons": "5.5.2",
