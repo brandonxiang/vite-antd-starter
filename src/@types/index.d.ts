@@ -1,3 +1,5 @@
+import { RouteObject } from 'react-router';
+
 export interface MenuType {
   path: string;
   title: string;
@@ -16,4 +18,15 @@ export interface MenuType {
     hasPermission?: boolean;
   }[];
   redirect?: string;
+}
+
+// Route configuration for data router mode
+export interface DataRouteConfig extends Omit<RouteObject, 'children'> {
+  id?: string;
+  title?: string;
+  icon?: any;
+  noMenu?: boolean;
+  hasPermission?: boolean;
+  redirect?: string;
+  children?: DataRouteConfig[];
 }

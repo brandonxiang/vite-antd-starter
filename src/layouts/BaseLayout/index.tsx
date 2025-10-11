@@ -1,21 +1,26 @@
-import { PureComponent } from 'react';
+import { PureComponent, ReactNode } from 'react';
 import { Layout } from 'antd';
 import { Header } from '../Header';
 import { BaseMenu } from '../Menu';
-import { BaseRouters } from '@/router';
-import { getMenus } from '@/router/config';
+import { extractMenuStructure, dataRoutes } from '@/router/menus';
 import { APP_ENV } from '@/utils';
 import styles from './index.module.scss';
 
-
 const { Sider, Content } = Layout;
-const menus = getMenus();
+// Extract menu structure from data routes
+const menus = extractMenuStructure(dataRoutes);
 
-class PageLayout extends PureComponent {
+interface PageLayoutProps {
+  children?: ReactNode;
+}
+
+class PageLayout extends PureComponent<PageLayoutProps> {
   onMenuClick = () => {
   };
 
   render() {
+    const { children } = this.props;
+    
     return (
       <Layout style={{ minHeight: '100vh' }} hasSider>
         <Sider
@@ -47,7 +52,7 @@ class PageLayout extends PureComponent {
             onMenuClick={this.onMenuClick}
           />
           <Content className={styles.content}>
-            <BaseRouters />
+            {children}
           </Content>
         </Layout>
       </Layout>

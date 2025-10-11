@@ -1,5 +1,11 @@
-import menus from './menus';
+import { dataRoutes, extractMenuStructure } from './menus';
 
-export const getMenus = () => {
-  return menus;
+// Get routes configuration
+export const getDataRoutes = () => {
+  return dataRoutes;
+};
+
+// Get menu structure from data routes
+export const getMenusFromDataRoutes = () => {
+  return extractMenuStructure(dataRoutes);
 };

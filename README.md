@@ -8,15 +8,25 @@
 
 ## Why do you use this template
 
-This template is a simplest solution to start up an new SPA.
+This template is a simplest solution to start up an new SPA with modern React Router Data Mode.
 
 ## What is the key web framework for this template
 
-- [React](https://react.dev/)
-- [React Router](https://reactrouter.com/en/main)
-- [Antd](https://ant.design/index-cn)
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/) - UI Library (v19)
+- [React Router](https://reactrouter.com/en/main) - Data Router Mode (v7)
+- [Antd](https://ant.design/index-cn) - UI Components (v5)
+- [Vite](https://vitejs.dev/) - Build Tool
+- [TypeScript](https://www.typescriptlang.org/) - Type Safety
+
+## Features
+
+✨ **Modern React Router Data Mode** - Using `createBrowserRouter` with data loading capabilities
+🎨 **Ant Design 5** - Beautiful and professional UI components
+⚡ **Vite** - Lightning fast HMR and build
+📦 **TypeScript** - Full type safety
+🎯 **Code Splitting** - Automatic lazy loading of routes
+🔄 **Data Loading** - Built-in loaders and actions support
+📱 **Responsive Layout** - Mobile-friendly admin layout
 
 ## Start Up
 
@@ -48,6 +58,37 @@ pnpm run dev
 pnpm run build
 ```
 
+## Router Configuration
+
+This project uses React Router's **Data Mode** with `createBrowserRouter`. This provides:
+
+- **Data Loading**: Load data before components render using loaders
+- **Form Actions**: Handle mutations with actions
+- **Error Boundaries**: Built-in error handling per route
+- **Type Safety**: Better TypeScript integration
+
+### Adding a New Route
+
+Edit `src/router/menus.tsx`:
+
+```tsx
+export const dataRoutes: DataRouteConfig[] = [
+  {
+    id: 'my-route',
+    path: '/my-route',
+    title: 'My Route',
+    icon: <MyIcon />,
+    Component: MyComponent,
+    // Optional: Add data loading
+    loader: async ({ params }) => {
+      const data = await fetchData();
+      return data;
+    },
+  },
+];
+```
+
+See [ROUTER_MIGRATION.md](./ROUTER_MIGRATION.md) for detailed documentation and examples.
 
 ## Relevant Links
 

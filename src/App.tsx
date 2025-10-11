@@ -1,13 +1,9 @@
-import { BrowserRouter } from 'react-router';
-import { ContentLayout } from '@/layouts/BaseLayout';
+import { RouterProvider } from 'react-router';
+import { router } from '@/router';
 import './App.scss';
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <ContentLayout />
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
