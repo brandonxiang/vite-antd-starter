@@ -1,8 +1,10 @@
 import { lazy } from 'react';
-import { HomeOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { HomeOutlined, UnorderedListOutlined, TableOutlined, DashboardOutlined } from '@ant-design/icons';
 import { MenuType, DataRouteConfig } from '@/@types';
 
 const Home = lazy(() => import('@/pages/Home'));
+const TableList = lazy(() => import('@/pages/TableList'));
+const Dashboard = lazy(() => import('@/pages/Dashboard'));
 
 // Route configurations using React Router's data API
 export const dataRoutes: DataRouteConfig[] = [
@@ -37,6 +39,20 @@ export const dataRoutes: DataRouteConfig[] = [
     title: 'Menu 2',
     icon: <HomeOutlined />,
     Component: Home,
+  },
+  {
+    id: 'table-list',
+    path: '/table-list',
+    title: 'Table List',
+    icon: <TableOutlined />,
+    Component: TableList,
+  },
+  {
+    id: 'dashboard',
+    path: '/dashboard',
+    title: 'Dashboard',
+    icon: <DashboardOutlined />,
+    Component: Dashboard,
   },
 ];
 
