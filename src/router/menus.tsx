@@ -1,5 +1,10 @@
 import { lazy } from 'react';
-import { HomeOutlined, UnorderedListOutlined, TableOutlined, DashboardOutlined } from '@ant-design/icons';
+import {
+  HomeOutlined,
+  UnorderedListOutlined,
+  TableOutlined,
+  DashboardOutlined,
+} from '@ant-design/icons';
 import { MenuType, DataRouteConfig } from '@/@types';
 
 const Home = lazy(() => import('@/pages/Home'));
@@ -14,10 +19,6 @@ export const dataRoutes: DataRouteConfig[] = [
     title: 'Home',
     icon: <HomeOutlined />,
     Component: Home,
-    // You can add loader here for data fetching
-    // loader: async ({ request, params }) => {
-    //   return { data: 'some data' };
-    // },
   },
   {
     id: 'menu1',
@@ -59,13 +60,13 @@ export const dataRoutes: DataRouteConfig[] = [
 // Helper function to extract menu structure from data routes for Menu component
 export const extractMenuStructure = (routes: DataRouteConfig[]): MenuType[] => {
   const menuMap = new Map<string, MenuType>();
-  
-  routes.forEach(route => {
+
+  routes.forEach((route) => {
     // Skip routes without titles (they won't be displayed in menu)
     if (!route.title) return;
-    
+
     const pathParts = route.path?.split('/').filter(Boolean) || [];
-    
+
     if (pathParts.length === 0) {
       // Root level route
       menuMap.set(route.path!, {
@@ -95,7 +96,7 @@ export const extractMenuStructure = (routes: DataRouteConfig[]): MenuType[] => {
       // Second level route (submenu)
       const parentPath = `/${pathParts[0]}`;
       const parent = menuMap.get(parentPath);
-      
+
       if (parent) {
         if (!parent.subMenu) {
           parent.subMenu = [];
@@ -130,6 +131,6 @@ export const extractMenuStructure = (routes: DataRouteConfig[]): MenuType[] => {
       }
     }
   });
-  
+
   return Array.from(menuMap.values());
 };

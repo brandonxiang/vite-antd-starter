@@ -1,6 +1,6 @@
 /**
  * Example: React Router Data Mode Features
- * 
+ *
  * This file demonstrates how to use React Router's Data Mode features
  * including loaders, actions, and useLoaderData hook.
  */
@@ -30,10 +30,10 @@ interface ActionData {
 
 /**
  * Loader Function
- * 
+ *
  * Loaders are called before the component renders.
  * They provide data to the route component via useLoaderData().
- * 
+ *
  * Add this to your route configuration:
  * {
  *   path: '/users',
@@ -58,10 +58,10 @@ export async function usersLoader({ request }: LoaderFunctionArgs): Promise<Load
 
 /**
  * Action Function
- * 
+ *
  * Actions handle form submissions and data mutations.
  * They're called when a Form is submitted with method="post"
- * 
+ *
  * Add this to your route configuration:
  * {
  *   path: '/users',
@@ -107,10 +107,10 @@ export async function usersAction({ request }: ActionFunctionArgs): Promise<Acti
  */
 export default function UsersPage() {
   const navigate = useNavigate();
-  
+
   // useLoaderData returns the data from the loader function
   const { users, timestamp } = useLoaderData() as LoaderData;
-  
+
   // useActionData returns the result from the action function
   const actionData = useActionData() as ActionData | undefined;
 
@@ -133,14 +133,8 @@ export default function UsersPage() {
             dataSource={users}
             renderItem={(user) => (
               <List.Item key={user.id}>
-                <List.Item.Meta
-                  title={user.name}
-                  description={user.email}
-                />
-                <Button 
-                  type="link"
-                  onClick={() => navigate(`/users/${user.id}`)}
-                >
+                <List.Item.Meta title={user.name} description={user.email} />
+                <Button type="link" onClick={() => navigate(`/users/${user.id}`)}>
                   View Details
                 </Button>
               </List.Item>
@@ -191,11 +185,11 @@ export default function UsersPage() {
 export async function userDetailLoader({ params }: LoaderFunctionArgs) {
   const userId = params.userId;
   const response = await fetch(`/api/users/${userId}`);
-  
+
   if (!response.ok) {
     throw new Response('User not found', { status: 404 });
   }
-  
+
   return response.json();
 }
 
@@ -204,28 +198,34 @@ export function UserDetailPage() {
   const navigate = useNavigate();
 
   return (
-    <Card 
+    <Card
       title={`User: ${user.name}`}
       extra={<Button onClick={() => navigate('/users')}>Back</Button>}
     >
-      <p><strong>ID:</strong> {user.id}</p>
-      <p><strong>Name:</strong> {user.name}</p>
-      <p><strong>Email:</strong> {user.email}</p>
+      <p>
+        <strong>ID:</strong> {user.id}
+      </p>
+      <p>
+        <strong>Name:</strong> {user.name}
+      </p>
+      <p>
+        <strong>Email:</strong> {user.email}
+      </p>
     </Card>
   );
 }
 
 /**
  * How to add these to your routes:
- * 
+ *
  * In src/router/menus.tsx:
- * 
+ *
  * import { UsersOutlined } from '@ant-design/icons';
  * import { lazy } from 'react';
- * 
+ *
  * const UsersPage = lazy(() => import('@/examples/DataRouterExample'));
  * const UserDetailPage = lazy(() => import('@/examples/DataRouterExample').then(m => ({ default: m.UserDetailPage })));
- * 
+ *
  * export const dataRoutes: DataRouteConfig[] = [
  *   // ... other routes
  *   {
@@ -246,4 +246,3 @@ export function UserDetailPage() {
  *   },
  * ];
  */
-

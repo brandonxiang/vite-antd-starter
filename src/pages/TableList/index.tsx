@@ -128,7 +128,7 @@ const TableList = () => {
     try {
       const values = await modalForm.validateFields();
       setLoading(true);
-      
+
       // Simulate API call
       setTimeout(() => {
         if (modalType === 'add') {
@@ -143,7 +143,7 @@ const TableList = () => {
           message.success('Added successfully');
         } else {
           const newData = dataSource.map((item) =>
-            item.key === currentRecord?.key ? { ...item, ...values } : item
+            item.key === currentRecord?.key ? { ...item, ...values } : item,
           );
           setDataSource(newData);
           message.success('Updated successfully');
@@ -217,11 +217,7 @@ const TableList = () => {
       fixed: 'right',
       render: (_: any, record: DataType) => (
         <Space size="middle">
-          <Button
-            type="link"
-            icon={<EditOutlined />}
-            onClick={() => handleEdit(record)}
-          >
+          <Button type="link" icon={<EditOutlined />} onClick={() => handleEdit(record)}>
             Edit
           </Button>
           <Popconfirm
@@ -243,30 +239,22 @@ const TableList = () => {
     <div className="table-list-page">
       {/* Search Form */}
       <Card className="search-card" bordered={false}>
-        <Form
-          form={searchForm}
-          layout="inline"
-          className="search-form"
-        >
+        <Form form={searchForm} layout="inline" className="search-form">
           <Form.Item name="name" label="Name">
             <Input placeholder="Please enter name" allowClear />
           </Form.Item>
-          
+
           <Form.Item name="status" label="Status">
-            <Select
-              placeholder="Please select status"
-              allowClear
-              style={{ width: 150 }}
-            >
+            <Select placeholder="Please select status" allowClear style={{ width: 150 }}>
               <Select.Option value="active">Active</Select.Option>
               <Select.Option value="inactive">Inactive</Select.Option>
             </Select>
           </Form.Item>
-          
+
           <Form.Item name="dateRange" label="Date Range">
             <RangePicker />
           </Form.Item>
-          
+
           <Form.Item>
             <Space>
               <Button
@@ -315,11 +303,7 @@ const TableList = () => {
         confirmLoading={loading}
         width={600}
       >
-        <Form
-          form={modalForm}
-          layout="vertical"
-          initialValues={{ status: 'active' }}
-        >
+        <Form form={modalForm} layout="vertical" initialValues={{ status: 'active' }}>
           <Form.Item
             name="name"
             label="Name"
@@ -327,7 +311,7 @@ const TableList = () => {
           >
             <Input placeholder="Please enter name" />
           </Form.Item>
-          
+
           <Form.Item
             name="age"
             label="Age"
@@ -335,18 +319,15 @@ const TableList = () => {
           >
             <Input type="number" placeholder="Please enter age" />
           </Form.Item>
-          
+
           <Form.Item
             name="address"
             label="Address"
             rules={[{ required: true, message: 'Please enter address' }]}
           >
-            <Input.TextArea
-              rows={3}
-              placeholder="Please enter address"
-            />
+            <Input.TextArea rows={3} placeholder="Please enter address" />
           </Form.Item>
-          
+
           <Form.Item
             name="status"
             label="Status"
@@ -364,4 +345,3 @@ const TableList = () => {
 };
 
 export default TableList;
-

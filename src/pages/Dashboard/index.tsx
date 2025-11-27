@@ -305,20 +305,12 @@ const Dashboard = () => {
       {/* Charts Section */}
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={16}>
-          <Card
-            bordered={false}
-            title="Revenue & Cost Trend"
-            className="chart-card"
-          >
+          <Card bordered={false} title="Revenue & Cost Trend" className="chart-card">
             <div ref={lineChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
         <Col xs={24} lg={8}>
-          <Card
-            bordered={false}
-            title="Device Distribution"
-            className="chart-card"
-          >
+          <Card bordered={false} title="Device Distribution" className="chart-card">
             <div ref={pieChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
@@ -326,20 +318,12 @@ const Dashboard = () => {
 
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={12}>
-          <Card
-            bordered={false}
-            title="Sales by Category"
-            className="chart-card"
-          >
+          <Card bordered={false} title="Sales by Category" className="chart-card">
             <div ref={barChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card
-            bordered={false}
-            title="Product Performance"
-            className="chart-card"
-          >
+          <Card bordered={false} title="Product Performance" className="chart-card">
             <div ref={areaChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
@@ -349,4 +333,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

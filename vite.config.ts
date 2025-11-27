@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
 import path, { dirname } from 'path';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { fileURLToPath } from 'url';
-
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -28,9 +27,11 @@ export default defineConfig(({ mode }) => {
       sourcemap: mode === 'production',
       rollupOptions: {
         output: {
-          manualChunks: {
-            react: ['react', 'react-dom', 'react-router'],
-            antd: ['antd'],
+          advancedChunks: {
+            groups: [
+              { name: 'react', test: /\/react(?:-dom|-router)?/ },
+              { name: 'antd', test: /\/antd\/.*/ },
+            ],
           },
         },
       },

@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import globals from 'globals'
+import globals from 'globals';
 import tsEslint from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -9,7 +9,7 @@ export default tsEslint.config(
   {
     ignores: ['dist/', 'node_modules/'],
   },
-  
+
   {
     extends: [
       ...tsEslint.configs.recommended,
@@ -28,16 +28,13 @@ export default tsEslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       quotes: [2, 'single'],
-      semi: ["error", "always"],
+      semi: ['error', 'always'],
       camelcase: 'off',
       'no-async-promise-executor': 1,
       'no-empty': 1,
-      "@typescript-eslint/no-explicit-any": 1,
+      '@typescript-eslint/no-explicit-any': 1,
     },
   },
 );

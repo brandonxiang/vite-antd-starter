@@ -15,12 +15,11 @@ interface PageLayoutProps {
 }
 
 class PageLayout extends PureComponent<PageLayoutProps> {
-  onMenuClick = () => {
-  };
+  onMenuClick = () => {};
 
   render() {
     const { children } = this.props;
-    
+
     return (
       <Layout style={{ minHeight: '100vh' }} hasSider>
         <Sider
@@ -47,13 +46,8 @@ class PageLayout extends PureComponent<PageLayoutProps> {
           <BaseMenu menu={menus} theme="dark" mode="inline" />
         </Sider>
         <Layout>
-          <Header
-            user={{ name: 'admin user' }}
-            onMenuClick={this.onMenuClick}
-          />
-          <Content className={styles.content}>
-            {children}
-          </Content>
+          <Header user={{ name: 'admin user' }} onMenuClick={this.onMenuClick} />
+          <Content className={styles.content}>{children}</Content>
         </Layout>
       </Layout>
     );
