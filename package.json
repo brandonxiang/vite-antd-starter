@@ -17,7 +17,7 @@
   },
   "optionalDependencies": {
     "husky": "9.1.7",
-    "lint-staged": "16.1.2"
+    "lint-staged": "16.2.7"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
@@ -26,8 +26,8 @@
     "@vitejs/plugin-react": "^5.1.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "globals": "^16.5.0",
-    "oxfmt": "^0.15.0",
-    "oxlint": "^1.30.0",
+    "oxfmt": "^0.16.0",
+    "oxlint": "^1.31.0",
     "sass": "^1.94.2",
     "typescript": "^5.9.3",
     "vite": "npm:rolldown-vite@latest",
@@ -36,9 +36,9 @@
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
     "@antv/g2": "^5.4.6",
-    "antd": "^6.0.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router": "^7.9.6"
+    "antd": "^6.0.1",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-router": "^7.10.1"
   }
 }
