@@ -8,7 +8,7 @@
       "@/*": ["src/*"]
     },
     "rootDirs": ["src"],
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "typeRoots": ["./node_modules/@types", "src/types"],
     "module": "ESNext",
     "skipLibCheck": true,
 

@@ -5,7 +5,7 @@ import {
   TableOutlined,
   DashboardOutlined,
 } from '@ant-design/icons';
-import { MenuType, DataRouteConfig } from '@/@types';
+import { MenuType, DataRouteConfig } from '@/types';
 
 const Home = lazy(() => import('@/pages/Home'));
 const TableList = lazy(() => import('@/pages/TableList'));

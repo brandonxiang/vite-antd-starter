@@ -4,7 +4,7 @@ import { dataRoutes } from './menus';
 import NotFound from '@/pages/404';
 import { PageLoading } from '@/components/PageLoading';
 import { ContentLayout } from '@/layouts/BaseLayout';
-import { DataRouteConfig } from '@/@types';
+import { DataRouteConfig } from '@/types';
 
 // Create router using data mode with createBrowserRouter
 export const router = createBrowserRouter([
