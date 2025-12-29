@@ -31,7 +31,8 @@
     "sass": "^1.94.2",
     "typescript": "^5.9.3",
     "vite": "npm:rolldown-vite@latest",
-    "vite-plugin-html": "^3.2.2"
+    "vite-plugin-html": "^3.2.2",
+    "rollup-plugin-visualizer": "^6.0.5"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
