@@ -24,4 +24,4 @@ jobs:
       - name: Run OpenCode
         uses: anomalyco/opencode/github@latest
         with:
-          model: openai/glm-4
+          model: zen/glm-4.7-free
