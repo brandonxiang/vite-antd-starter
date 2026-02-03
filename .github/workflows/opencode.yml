@@ -14,9 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
           persist-credentials: false
@@ -25,3 +28,5 @@ jobs:
         uses: anomalyco/opencode/github@latest
         with:
           model: zen/glm-4.7-free
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
