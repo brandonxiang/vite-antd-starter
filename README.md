@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/brandonxiang/vite-antd-starter">
-    <img src="/logo.svg" width="120px" alt="Vite Antd Starter Logo" />
+    <img src="./public/logo.svg" width="120px" alt="Vite Antd Starter Logo" />
   </a>
 </p>
 
