@@ -47,7 +47,10 @@ const Dashboard = () => {
         y: 'value',
         color: 'type',
       },
-      transform: [{ type: 'fold', fields: ['revenue', 'cost'], key: 'type', value: 'value' }],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      transform: [
+        { type: 'fold', fields: ['revenue', 'cost'], key: 'type', value: 'value' },
+      ] as any,
       scale: {
         color: {
           range: ['#5B8FF9', '#F4664A'],
@@ -106,6 +109,7 @@ const Dashboard = () => {
         y: { title: 'Sales ($)' },
       },
       legend: false,
+      // @ts-expect-error - label property not in G2 types
       label: {
         text: 'sales',
         position: 'top',
@@ -154,12 +158,13 @@ const Dashboard = () => {
           title: false,
           position: 'right',
         },
-      },
-      label: {
-        text: (d) => `${d.type}\n${d.value}%`,
-        position: 'outside',
-        style: {
-          textAlign: 'center',
+        // @ts-expect-error - label property not in G2 types
+        label: {
+          text: (d: { type: string; value: number }) => `${d.type}\n${d.value}%`,
+          position: 'outside',
+          style: {
+            textAlign: 'center',
+          },
         },
       },
       tooltip: {

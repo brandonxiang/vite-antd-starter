@@ -6,40 +6,48 @@
     "start": "vite",
     "build": "vite build",
     "prepare": "husky",
+    "ts-check": "tsc --noEmit",
     "lint": "oxlint --fix",
-    "format": "oxfmt"
+    "format": "oxfmt",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.1.0",
+    "@antv/g2": "^5.4.8",
+    "antd": "^6.3.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router": "^7.13.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.3.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "globals": "^17.3.0",
+    "jsdom": "^28.1.0",
+    "oxfmt": "^0.35.0",
+    "oxlint": "^1.50.0",
+    "rollup-plugin-visualizer": "^7.0.0",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0-beta.15",
+    "vite-plugin-html": "^3.2.2",
+    "vitest": "^4.0.18"
+  },
+  "optionalDependencies": {
+    "husky": "9.1.7",
+    "lint-staged": "16.1.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "oxlint --fix",
       "oxfmt"
     ]
-  },
-  "optionalDependencies": {
-    "husky": "9.1.7",
-    "lint-staged": "16.1.2"
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "globals": "^16.5.0",
-    "oxfmt": "^0.15.0",
-    "oxlint": "^1.30.0",
-    "sass": "^1.94.2",
-    "typescript": "^5.9.3",
-    "vite": "^8.0.0-beta.12",
-    "vite-plugin-html": "^3.2.2",
-    "rollup-plugin-visualizer": "^7.0.0"
-  },
-  "dependencies": {
-    "@ant-design/icons": "^6.1.0",
-    "@antv/g2": "^5.4.6",
-    "antd": "^6.0.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router": "^7.9.6"
   }
 }

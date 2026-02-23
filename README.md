@@ -16,6 +16,7 @@
 ## ✨ Why This Template
 
 This is the fastest way to start a modern React SPA with:
+
 - **React Router Data Mode** for elegant data loading and state management
 - **Ant Design 6** with its latest component improvements and theming system
 - **Vite 8** for lightning-fast development experience
@@ -23,13 +24,13 @@ This is the fastest way to start a modern React SPA with:
 
 ## 🚀 Key Technologies
 
-| Technology | Version | Description |
-|------------|---------|-------------|
-| [React](https://react.dev/) | v19 | Modern React with latest features |
-| [React Router](https://reactrouter.com/) | v7 | Data Router Mode for enhanced routing |
-| [Ant Design](https://ant.design/) | v6 | Enterprise-class UI component library |
-| [Vite](https://vitejs.dev/) | v8-beta12 | Next-generation frontend tooling |
-| [TypeScript](https://www.typescriptlang.org/) | v5.9 | Type safety and better DX |
+| Technology                                    | Version   | Description                           |
+| --------------------------------------------- | --------- | ------------------------------------- |
+| [React](https://react.dev/)                   | v19       | Modern React with latest features     |
+| [React Router](https://reactrouter.com/)      | v7        | Data Router Mode for enhanced routing |
+| [Ant Design](https://ant.design/)             | v6        | Enterprise-class UI component library |
+| [Vite](https://vitejs.dev/)                   | v8-beta12 | Next-generation frontend tooling      |
+| [TypeScript](https://www.typescriptlang.org/) | v5.9      | Type safety and better DX             |
 
 ## 🎨 Ant Design 6 Highlights
 
