@@ -1,7 +1,11 @@
 import { Spin } from 'antd';
 
-export const PageLoading = () => (
+export interface PageLoadingProps {
+  tip?: string;
+}
+
+export const PageLoading = ({ tip }: PageLoadingProps) => (
   <div style={{ paddingTop: 100, textAlign: 'center' }}>
-    <Spin size="large" />
+    <Spin size="large" tip={tip} />
   </div>
 );
