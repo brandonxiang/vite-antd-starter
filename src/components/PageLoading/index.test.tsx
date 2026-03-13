@@ -9,10 +9,10 @@ describe('components/PageLoading', () => {
     expect(spinner).toBeInTheDocument();
   });
 
-  it('should have spinning class when loading', () => {
+  it('should have aria-busy attribute', () => {
     render(<PageLoading />);
-    const spinner = document.querySelector('.ant-spin-spinning');
-    expect(spinner).toBeInTheDocument();
+    const spinner = document.querySelector('.ant-spin');
+    expect(spinner).toHaveAttribute('aria-busy', 'true');
   });
 
   it('should apply custom tip', () => {
