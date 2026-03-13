@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vite-plus/test" />
 
 interface ImportMetaEnv {
   readonly APP_ENV: string;

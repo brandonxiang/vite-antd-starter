@@ -26,31 +26,33 @@ const Dashboard = () => {
       autoFit: true,
     });
 
+    const rawData = [
+      { month: 'Jan', revenue: 3500, cost: 2800 },
+      { month: 'Feb', revenue: 4200, cost: 3100 },
+      { month: 'Mar', revenue: 3800, cost: 2900 },
+      { month: 'Apr', revenue: 5100, cost: 3400 },
+      { month: 'May', revenue: 4800, cost: 3300 },
+      { month: 'Jun', revenue: 6200, cost: 3900 },
+      { month: 'Jul', revenue: 7100, cost: 4200 },
+      { month: 'Aug', revenue: 6800, cost: 4100 },
+      { month: 'Sep', revenue: 7500, cost: 4500 },
+      { month: 'Oct', revenue: 8200, cost: 4800 },
+      { month: 'Nov', revenue: 9100, cost: 5200 },
+      { month: 'Dec', revenue: 9800, cost: 5500 },
+    ];
+    const lineData = rawData.flatMap((d) => [
+      { month: d.month, type: 'revenue', value: d.revenue },
+      { month: d.month, type: 'cost', value: d.cost },
+    ]);
+
     chart.options({
       type: 'line',
-      data: [
-        { month: 'Jan', revenue: 3500, cost: 2800 },
-        { month: 'Feb', revenue: 4200, cost: 3100 },
-        { month: 'Mar', revenue: 3800, cost: 2900 },
-        { month: 'Apr', revenue: 5100, cost: 3400 },
-        { month: 'May', revenue: 4800, cost: 3300 },
-        { month: 'Jun', revenue: 6200, cost: 3900 },
-        { month: 'Jul', revenue: 7100, cost: 4200 },
-        { month: 'Aug', revenue: 6800, cost: 4100 },
-        { month: 'Sep', revenue: 7500, cost: 4500 },
-        { month: 'Oct', revenue: 8200, cost: 4800 },
-        { month: 'Nov', revenue: 9100, cost: 5200 },
-        { month: 'Dec', revenue: 9800, cost: 5500 },
-      ],
+      data: lineData,
       encode: {
         x: 'month',
         y: 'value',
         color: 'type',
       },
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      transform: [
-        { type: 'fold', fields: ['revenue', 'cost'], key: 'type', value: 'value' },
-      ] as any,
       scale: {
         color: {
           range: ['#5B8FF9', '#F4664A'],
@@ -68,7 +70,7 @@ const Dashboard = () => {
       },
     });
 
-    chart.render();
+    void chart.render();
 
     return () => {
       chart.destroy();
@@ -119,7 +121,7 @@ const Dashboard = () => {
       },
     });
 
-    chart.render();
+    void chart.render();
 
     return () => {
       chart.destroy();
@@ -178,7 +180,7 @@ const Dashboard = () => {
       },
     });
 
-    chart.render();
+    void chart.render();
 
     return () => {
       chart.destroy();
@@ -236,7 +238,7 @@ const Dashboard = () => {
       },
     });
 
-    chart.render();
+    void chart.render();
 
     return () => {
       chart.destroy();
@@ -248,14 +250,14 @@ const Dashboard = () => {
       {/* Statistics Cards */}
       <Row gutter={[16, 16]} className="stats-row">
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card">
+          <Card variant="borderless" className="stat-card">
             <Statistic
               title="Total Revenue"
               value={98500}
               precision={2}
               prefix={<DollarOutlined />}
               suffix={<ArrowUpOutlined style={{ color: '#3f8600' }} />}
-              valueStyle={{ color: '#3f8600' }}
+              styles={{ content: { color: '#3f8600' } }}
             />
             <div className="stat-footer">
               <span>+12.5% from last month</span>
@@ -263,13 +265,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card">
+          <Card variant="borderless" className="stat-card">
             <Statistic
               title="Total Users"
               value={12458}
               prefix={<UserOutlined />}
               suffix={<ArrowUpOutlined style={{ color: '#3f8600' }} />}
-              valueStyle={{ color: '#3f8600' }}
+              styles={{ content: { color: '#3f8600' } }}
             />
             <div className="stat-footer">
               <span>+8.3% from last month</span>
@@ -277,13 +279,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card">
+          <Card variant="borderless" className="stat-card">
             <Statistic
               title="Total Orders"
               value={3256}
               prefix={<ShoppingCartOutlined />}
               suffix={<ArrowDownOutlined style={{ color: '#cf1322' }} />}
-              valueStyle={{ color: '#cf1322' }}
+              styles={{ content: { color: '#cf1322' } }}
             />
             <div className="stat-footer">
               <span>-2.1% from last month</span>
@@ -291,14 +293,14 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card bordered={false} className="stat-card">
+          <Card variant="borderless" className="stat-card">
             <Statistic
               title="Conversion Rate"
               value={3.24}
               precision={2}
               prefix={<LineChartOutlined />}
               suffix="%"
-              valueStyle={{ color: '#1890ff' }}
+              styles={{ content: { color: '#1890ff' } }}
             />
             <div className="stat-footer">
               <span>+0.5% from last month</span>
@@ -310,12 +312,12 @@ const Dashboard = () => {
       {/* Charts Section */}
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={16}>
-          <Card bordered={false} title="Revenue & Cost Trend" className="chart-card">
+          <Card variant="borderless" title="Revenue & Cost Trend" className="chart-card">
             <div ref={lineChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
         <Col xs={24} lg={8}>
-          <Card bordered={false} title="Device Distribution" className="chart-card">
+          <Card variant="borderless" title="Device Distribution" className="chart-card">
             <div ref={pieChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
@@ -323,12 +325,12 @@ const Dashboard = () => {
 
       <Row gutter={[16, 16]}>
         <Col xs={24} lg={12}>
-          <Card bordered={false} title="Sales by Category" className="chart-card">
+          <Card variant="borderless" title="Sales by Category" className="chart-card">
             <div ref={barChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card bordered={false} title="Product Performance" className="chart-card">
+          <Card variant="borderless" title="Product Performance" className="chart-card">
             <div ref={areaChartRef} style={{ height: '350px' }} />
           </Card>
         </Col>

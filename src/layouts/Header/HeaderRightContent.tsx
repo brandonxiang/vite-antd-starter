@@ -29,12 +29,14 @@ export class HeaderRightContent extends React.PureComponent<HeaderProps> {
     ];
 
     return (
-      <Dropdown menu={{ items }} className={styles.right}>
-        <span>
-          <Avatar size="small" src={picture} alt="avatar" />
-          <span className={styles.name}>{name}</span>
-        </span>
-      </Dropdown>
+      <div className={styles.right}>
+        <Dropdown menu={{ items }}>
+          <span className={styles.action}>
+            <Avatar size="small" src={picture} alt="avatar" />
+            <span className={styles.name}>{name}</span>
+          </span>
+        </Dropdown>
+      </div>
     );
   }
 }

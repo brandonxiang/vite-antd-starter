@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">Vite Antd Starter</h1>
-<p align="center">Modern React SPA template with React Router Data Mode, Ant Design 6 & Vite 8</p>
+<p align="center">Modern React SPA template with React Router Data Mode, Ant Design 6 & Vite+</p>
 
 <p align="center">
   <a href="https://github.com/brandonxiang/vite-antd-starter/stargazers"><img src="https://img.shields.io/github/stars/brandonxiang/vite-antd-starter" alt="Stars"></a>
@@ -19,18 +19,18 @@ This is the fastest way to start a modern React SPA with:
 
 - **React Router Data Mode** for elegant data loading and state management
 - **Ant Design 6** with its latest component improvements and theming system
-- **Vite 8** for lightning-fast development experience
+- **Vite+** unified toolchain (`vp`) for dev/build/test/lint/format
 - **Full TypeScript** support for type-safe development
 
 ## 🚀 Key Technologies
 
-| Technology                                    | Version   | Description                           |
-| --------------------------------------------- | --------- | ------------------------------------- |
-| [React](https://react.dev/)                   | v19       | Modern React with latest features     |
-| [React Router](https://reactrouter.com/)      | v7        | Data Router Mode for enhanced routing |
-| [Ant Design](https://ant.design/)             | v6        | Enterprise-class UI component library |
-| [Vite](https://vitejs.dev/)                   | v8-beta12 | Next-generation frontend tooling      |
-| [TypeScript](https://www.typescriptlang.org/) | v5.9      | Type safety and better DX             |
+| Technology                                    | Version | Description                           |
+| --------------------------------------------- | ------- | ------------------------------------- |
+| [React](https://react.dev/)                   | v19     | Modern React with latest features     |
+| [React Router](https://reactrouter.com/)      | v7      | Data Router Mode for enhanced routing |
+| [Ant Design](https://ant.design/)             | v6      | Enterprise-class UI component library |
+| [Vite+](https://viteplus.dev/)                | v0.1+   | Unified web toolchain via `vp` CLI    |
+| [TypeScript](https://www.typescriptlang.org/) | v5.9    | Type safety and better DX             |
 
 ## 🎨 Ant Design 6 Highlights
 
@@ -130,21 +130,21 @@ Routes are automatically converted into a menu structure:
 }
 ```
 
-## ⚡ Vite 8 Features
+## ⚡ Vite+ Support
 
-Vite 8 brings even faster development:
+This template is fully aligned with **Vite+** workflow:
 
-- **Instant Server Start**: No bundling during development
-- **Lightning Fast HMR**: Updates appear instantly in milliseconds
-- **Rollup Integration**: Optimized production builds
-- **Native ESM**: Leverages modern browser capabilities
-- **Plugin Ecosystem**: Extensive plugin support
+- Use `vp` as the single entrypoint for install/dev/check/test/build
+- Keep package manager operations behind `vp` (`vp install`, `vp add`, `vp remove`)
+- Run quality gates with `vp check` and `vp test`
+- Use `vite-plus` imports in config/test runtime APIs
 
 ```bash
-# Vite 8 is configured with:
-# - @vitejs/plugin-react for React support
-# - vite-plugin-html for HTML template processing
-# - rollup-plugin-visualizer for bundle analysis
+vp install
+vp dev
+vp check
+vp test
+vp build
 ```
 
 ## 📦 Installation
@@ -155,22 +155,22 @@ npx degit brandonxiang/vite-antd-starter my-app
 cd my-app
 
 # Install dependencies
-pnpm install
+vp install
 
 # Start development server
-pnpm run dev
+vp dev
 
 # Build for production
-pnpm run build
+vp build
 ```
 
 ## 🛠️ Development
 
 ```bash
-pnpm run dev        # Start dev server on http://localhost:3000
-pnpm run build      # Build for production
-pnpm run lint       # Run linting with oxlint
-pnpm run format     # Format code with oxfmt
+vp dev              # Start dev server
+vp check            # Format + lint + type-check
+vp test             # Run tests
+vp build            # Build for production
 ```
 
 ## 📁 Project Structure
@@ -237,7 +237,8 @@ export const dataRoutes: DataRouteConfig[] = [
 
 - [React Router Data API](https://reactrouter.com/en/main/route/route#data-apis)
 - [Ant Design 6 Documentation](https://ant.design/docs/spec/introduce)
-- [Vite Documentation](https://vitejs.dev/guide/)
+- [Vite+ Documentation](https://viteplus.dev/)
+- [Vite Documentation](https://vite.dev/guide/)
 - [React 19 Documentation](https://react.dev/learn)
 
 ## 📝 License
