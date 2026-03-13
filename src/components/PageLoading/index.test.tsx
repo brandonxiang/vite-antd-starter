@@ -1,15 +1,22 @@
 import { describe, it, expect } from 'vite-plus/test';
-import { render } from '@testing-library/react';
-import { PageLoading } from '@/components/PageLoading';
+import { render, screen } from '@testing-library/react';
+import { PageLoading } from './index';
 
-describe('PageLoading', () => {
-  it('should render correctly', () => {
-    const { container } = render(<PageLoading />);
-    expect(container.firstChild).toMatchSnapshot();
+describe('components/PageLoading', () => {
+  it('should render loading indicator', () => {
+    render(<PageLoading />);
+    const spinner = document.querySelector('.ant-spin');
+    expect(spinner).toBeInTheDocument();
   });
 
-  it('should contain Spin component', () => {
-    const { container } = render(<PageLoading />);
-    expect(container.querySelector('.ant-spin')).toBeInTheDocument();
+  it('should have spinning class when loading', () => {
+    render(<PageLoading />);
+    const spinner = document.querySelector('.ant-spin-spinning');
+    expect(spinner).toBeInTheDocument();
+  });
+
+  it('should apply custom tip', () => {
+    render(<PageLoading tip="Custom loading..." />);
+    expect(screen.getByText('Custom loading...')).toBeInTheDocument();
   });
 });
