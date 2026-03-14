@@ -6,6 +6,7 @@
     "start": "vp dev",
     "build": "vp build",
     "prepare": "vp config",
+    "check": "vp check",
     "ts-check": "tsc --noEmit",
     "lint": "vp lint --fix",
     "format": "vp fmt",
@@ -33,16 +34,8 @@
     "jsdom": "^28.1.0",
     "sass": "^1.98.0",
     "typescript": "^5.9.3",
-    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plugin-html": "^3.2.2",
-    "vite-plus": "latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    "vite-plus": "latest"
   },
-  "packageManager": "bun@1.0.0",
-  "bun": {
-    "overrides": {
-      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
-    }
-  }
+  "packageManager": "bun@1.0.0"
 }
